@@ -9,7 +9,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 public class MainActivity extends AppCompatActivity {
     final String Q_INDEX_KEY = "qIndex";
     Question[] questions = {
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         yseBtn = findViewById(R.id.yes_btn);
         questionEdText = findViewById(R.id.textView);
         if (savedInstanceState != null) {
-            qIndex = savedInstanceState.getInt(Q_INDEX_KEY);
+            qIndex = savedInstanceState.getInt(Q_INDEX_KEY,0);
         }
         View.OnClickListener yesNoOCL = view -> {
             switch (view.getId()) {
@@ -68,11 +67,10 @@ public class MainActivity extends AppCompatActivity {
         qResultToast.show();
     }
 
-
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
         outState.putInt(Q_INDEX_KEY, qIndex);
-    }
+        super.onSaveInstanceState(outState);
 
+    }
 }
