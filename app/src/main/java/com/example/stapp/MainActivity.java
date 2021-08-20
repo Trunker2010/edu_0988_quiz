@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         showAnswerBtn.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, ShowAnswerActivity.class);
             intent.putExtra(IS_TRUE_ANSWER_KEY, questions[qIndex].getQuestionIsTrue());
+            intent.putExtra(GOOD_ANSWER_COUNT_KEY, goodAnswerCount);
             startActivity(intent);
         });
     }
