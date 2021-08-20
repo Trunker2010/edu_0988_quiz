@@ -11,8 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="12dp"
-        android:text="Москва столица России?"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/yesNoTopBarrier"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,20 +20,45 @@
         android:id="@+id/yes_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Да"
+        android:text="@string/Yes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/no_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+
     <Button
         android:id="@+id/no_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Нет"
+        android:text="@string/No"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/yes_btn"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/showAnswerBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/showAnswer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/yesNoBottomBarrier" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/yesNoTopBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="no_btn,yes_btn" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/yesNoBottomBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="no_btn,yes_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
